@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>WeatherCheck</title>
+    <style>
+        .jumbotron {
+            background-image: url("https://i.pinimg.com/originals/e0/2f/fe/e02ffed59c2c5075bd70a6b422cccf2f.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        #exampleInputLocation {
+            border-style: solid;
+            border-width: 3px;
+            border-color: black;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="">WeatherCheck</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="C:\Users\aniru\Desktop\CollegeProject\index.html">Home <span
+                            class="sr-only"></span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="C:\Users\aniru\Desktop\CollegeProject\news.html">News <span
+                            class="sr-only"></span></a>
+                </li>
+                <li class="nav-item {% block ab %}{% endblock %}">
+                    <a class="nav-link" href="C:\Users\aniru\Desktop\CollegeProject\about.html">About<span
+                            class="sr-only"></span></a>
+                </li>
+                <li class="nav-item {% block ac %}{% endblock %} ">
+                    <a class="nav-link" href="C:\Users\aniru\Desktop\CollegeProject\contact.html">Contact Us<span
+                            class="sr-only"></span></a>
+                </li>
+            </ul>
+        </div>
+
+
+        <!-- Button trigger login modal -->
+        <button type="button" class="btn btn-primary mx-2" data-toggle="modal" data-target="#LoginModal">
+            Log In
+        </button>
+
+        <!--login Modal -->
+        <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleLoginModalLabel">Log In</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" action="/login/">
+                            <div class="form-group">
+                                <label for="exampleInputUserName">Username</label>
+                                <input type="text" class="form-control" id="exampleInputUsername"
+                                    aria-describedby="usernameHelp" name="username">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Password</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+                            </div>
+                            <button type="submit" class="btn btn-success">Log In</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Button trigger SignUp modal -->
+        <button type="button" class="btn btn-primary mx-2" data-toggle="modal" data-target="#SignUpModal">
+            Sign Up
+        </button>
+
+        <!--SignUp Modal -->
+        <div class="modal fade" id="SignUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalSignUpLabel">Sign-Up</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" action="/signup/">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email address</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1"
+                                    aria-describedby="Email.." name="email1">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputUsername">Username</label>
+                                <input type="text" class="form-control" id="exampleInputUserName" name="username1">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Password</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1" name="pass1">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleConfirmPassword">Re-Type Password</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1" name="pass2">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1 class="jumbotron-heading" style="color: white;"><span id="typed"></span></h1>
+            <p>
+                <a href="" class="btn btn-success my-2">View IMD News</a>
+            </p>
+        </div>
+    </section>
+    <div class="container my-2">
+        <form method="post">
+            <div class="form-group my-5" align="center">
+                <label for="exampleInputText" id="heading"><b>Enter Your Location !</b></label>
+                <input type="text" class="form-control" id="exampleInputLocation" aria-describedby="Enter Your Location"
+                    name="city_name" required>
+                <div class="my-3">
+                    <button type="submit" class="btn btn-primary">Add City</button>
+                </div>
+            </div>
+        </form>
+        <div class="card-deck">
+            <div class="card my-2" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">City-Name : Chandigarh</h5>
+                    <p class="card-text">Temprature : 30 °c</p>
+                    <p class="card-text">Weather-Description : Sunny</p>
+                    <div class="mycls" align="center">
+                        <a href=""><button type="delete" class="btm btn-danger">Remove City</button> </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-deck">
+            <div class="card my-2" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">City-Name : Lucknow</h5>
+                    <p class="card-text">Temprature : 35 °C</p>
+                    <p class="card-text">Weather-Description : Sunny</p>
+                    <div class="mycls" align="center">
+                        <a href=""><button type="delete" class="btm btn-danger">Remove City</button> </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-deck">
+            <div class="card my-2" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">City-Name : Ludhiana</h5>
+                    <p class="card-text">Temprature : 22°C</p>
+                    <p class="card-text">Weather-Description : Heavy Rainfall</p>
+                    <div class="mycls" align="center">
+                        <a href=""><button type="delete" class="btm btn-danger">Remove City</button> </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-deck">
+            <div class="card my-2" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">City-Name : Banglore</h5>
+                    <p class="card-text">Temprature : 29°C</p>
+                    <p class="card-text">Weather-Description : Slightly-Cloudly</p>
+                    <div class="mycls" align="center">
+                        <a href=""><button type="delete" class="btm btn-danger">Remove City</button> </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.9/typed.min.js"></script>
+        <script>
+            window.onload = function () {
+                console.log("loaded")
+                var typed = new Typed('#typed', {
+                    strings: ["Welcome to WeatherCheck !", "Always check the weather situation before you step out!", "Add Locations !", "Check updates !"],
+                    backSpeed: 15,
+                    smartBackspace: true,
+                    backDelay: 1200,
+                    startDelay: 1000,
+                    typeSpeed: 25,
+                    loop: true,
+                });
+            };
+        </script>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>
